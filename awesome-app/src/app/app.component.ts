@@ -26,5 +26,9 @@ export class AppComponent {
     setTimeout(() => {
       this.text_color_class = "yellowgreen green_bg";
     }, 2000);
+    
+    setTimeout(() => {
+      this.link_style = "underline";
+    }, 4000);
   }
 }

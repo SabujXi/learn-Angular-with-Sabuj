@@ -6,7 +6,7 @@ Do not forget to visit me at: {{ website }} <br/>
 My Social Links:
 <ol>
     <li *ngFor="let link_obj of social_links"> 
-        <a [class]="'red_border'" *ngIf="link_obj.is_active; else elseTemplate" [href]="link_obj.link"> {{ link_obj.title }} </a> 
+        <a [style.text-decoration]="link_style" [class]="'red_border'" *ngIf="link_obj.is_active; else elseTemplate" [href]="link_obj.link"> {{ link_obj.title }} </a> 
         
         <ng-template #elseTemplate>
             <s> This link is not active </s>
