@@ -1,27 +1,27 @@
 import { Component } from '@angular/core';
 
+interface ISocialLink{
+  title: string;
+  link: string;
+  is_active: boolean;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-class AppComponent {
+export class AppComponent {
   name = "Md. Sabuj Sarker";
   profession = "Software Engineer";
   website = "http://sabuj.me";
-  social_links = [
-    "https://facebook.com/SabujXiP",
-    "https://twitter.com/SabujXi",
-    "https://github.com/SabujXi"
+  social_links: ISocialLink[] = [
+    { title: "Facebook", link: "https://facebook.com/SabujXiP", is_active: true },
+    { title: "Twitter", link: "https://twitter.com/SabujXi", is_active: false },
+    { title: "Github", link: "https://github.com/SabujXi", is_active: true }
   ]
 
   constructor(){
-    setTimeout(() => {
-      this.social_links.push("https://youtube.com/c/MdSabujSarker");
-    }, 2000);
     
-    setTimeout(() => {
-      this.social_links.shift();
-    }, 4000);
   }
 }

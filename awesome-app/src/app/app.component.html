@@ -3,7 +3,13 @@
 My name is Md. {{ name }} <br/>
 I am a {{ profession }}. <br/>
 Do not forget to visit me at: {{ website }} <br/>
-My Social Links: <br/>
+My Social Links:
 <ol>
-    <li *ngFor="let link of social_links"> {{ link }} </li>
+    <li *ngFor="let link_obj of social_links"> 
+        <a *ngIf="link_obj.is_active; else elseTemplate" href="{{ link_obj.link }}"> {{ link_obj.title }} </a> 
+        
+        <ng-template #elseTemplate>
+            <s> This link is not active </s>
+        </ng-template>
+    </li>
 </ol>
