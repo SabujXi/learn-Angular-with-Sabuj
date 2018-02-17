@@ -5,8 +5,24 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+class AppComponent {
   name = "Md. Sabuj Sarker";
   profession = "Software Engineer";
   website = "http://sabuj.me";
+  time = new Date();
+  counter = 0;
+  
+  constructor(){
+    setTimeout(()=>{
+      this.profession = "Writer";
+    }, 1000);
+
+    setInterval(() => {
+      this.time = new Date();
+    }, 1000);
+  }
+
+  handleClick(){
+    this.counter++;
+  }
 }
