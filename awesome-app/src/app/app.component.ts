@@ -9,20 +9,19 @@ class AppComponent {
   name = "Md. Sabuj Sarker";
   profession = "Software Engineer";
   website = "http://sabuj.me";
-  time = new Date();
-  counter = 0;
-  
+  social_links = [
+    "https://facebook.com/SabujXiP",
+    "https://twitter.com/SabujXi",
+    "https://github.com/SabujXi"
+  ]
+
   constructor(){
-    setTimeout(()=>{
-      this.profession = "Writer";
-    }, 1000);
-
-    setInterval(() => {
-      this.time = new Date();
-    }, 1000);
-  }
-
-  handleClick(){
-    this.counter++;
+    setTimeout(() => {
+      this.social_links.push("https://youtube.com/c/MdSabujSarker");
+    }, 2000);
+    
+    setTimeout(() => {
+      this.social_links.shift();
+    }, 4000);
   }
 }

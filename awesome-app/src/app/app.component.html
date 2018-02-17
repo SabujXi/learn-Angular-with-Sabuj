@@ -1,7 +1,9 @@
+<h1>My profile</h1>
 <b> Hello World </b> <br/>
 My name is Md. {{ name }} <br/>
 I am a {{ profession }}. <br/>
 Do not forget to visit me at: {{ website }} <br/>
-Current time: {{ time }} <br/>
-Counter: {{ counter }} <br/>
-<button (click)="handleClick()"> Update++ </button>
+My Social Links: <br/>
+<ol>
+    <li *ngFor="let link of social_links"> {{ link }} </li>
+</ol>
