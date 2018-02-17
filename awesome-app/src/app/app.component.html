@@ -1,0 +1,6 @@
+<h1>Two Way Data Binding</h1>
+<input type="text" [(ngModel)]="input_data" value=""> <br>
+<button type="button" (click)="react()">React</button>
+<div>
+    Input data: {{ input_data | uppercase }}
+</div>
