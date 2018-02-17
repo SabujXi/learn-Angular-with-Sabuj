@@ -1,19 +1,15 @@
-<table border="1">
-    <tr *ngFor="let link_obj of social_links">
-        <td [attr.colspan]="2"> 
-            <a *ngIf="link_obj.is_active; else elseTemplate" [href]="link_obj.link"> {{ link_obj.title }} </a> 
-            
-            <ng-template #elseTemplate>
-                <s> This link is not active </s>
-            </ng-template>
-        </td>
-        <td>
-            {{ link_obj.link }}
-        </td>
-    <tr>
-    <tr>
-        <td>col 1</td>
-        <td>col 2</td>
-        <td>col 3</td>
-    </tr>
-</table>
+<h1>My profile</h1>
+<b [class]="text_color_class"> Hello World </b> <br/>
+My name is Md. {{ name }} <br/>
+I am a {{ profession }}. <br/>
+Do not forget to visit me at: {{ website }} <br/>
+My Social Links:
+<ol>
+    <li *ngFor="let link_obj of social_links"> 
+        <a [class]="'red_border'" *ngIf="link_obj.is_active; else elseTemplate" [href]="link_obj.link"> {{ link_obj.title }} </a> 
+        
+        <ng-template #elseTemplate>
+            <s> This link is not active </s>
+        </ng-template>
+    </li>
+</ol>
