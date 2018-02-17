@@ -1,15 +1,31 @@
 <h1>My profile</h1>
-<b [class]="text_color_class"> Hello World </b> <br/>
+<b> Hello World </b> <br/>
 My name is Md. {{ name }} <br/>
 I am a {{ profession }}. <br/>
 Do not forget to visit me at: {{ website }} <br/>
+
 My Social Links:
 <ol>
-    <li *ngFor="let link_obj of social_links"> 
-        <a [style.text-decoration]="link_style" [class]="'red_border'" *ngIf="link_obj.is_active; else elseTemplate" [href]="link_obj.link"> {{ link_obj.title }} </a> 
+    <li *ngFor="let link_obj of social_links; let idx = index"> 
+        <a *ngIf="link_obj.is_active; else elseTemplate" [href]="link_obj.link"> {{ link_obj.title }} </a> 
         
         <ng-template #elseTemplate>
             <s> This link is not active </s>
         </ng-template>
+
+        | <button (click)="removeLink(idx)"> Remove This Link</button>
     </li>
+</ol>
+
+
+
+Your Quote: <br/>
+<input type="text" value="" (keyup)="inputChanged($event)" #inputElem> <br/>
+<button type="button" (click)="saveQuote(inputElem)">save quote</button> <br/> <br/>
+
+
+You have written: {{ current_quote }}
+
+<ol>
+    <li *ngFor="let quote of quotes">{{ quote }}</li>
 </ol>

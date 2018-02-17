@@ -20,15 +20,23 @@ export class AppComponent {
     { title: "Twitter", link: "https://twitter.com/SabujXi", is_active: false },
     { title: "Github", link: "https://github.com/SabujXi", is_active: true }
   ];
-  text_color_class = "white green_bg";
+  current_quote = "";
+  quotes = [];
+
+  removeLink(idx){
+    this.social_links.splice(idx, 1);
+  }
+
+  saveQuote(){
+    if (this.current_quote){
+      this.quotes.push(this.current_quote);
+    }
+  }
+
+  inputChanged(evt){
+      this.current_quote = evt.target.value;
+  }
 
   constructor(){
-    setTimeout(() => {
-      this.text_color_class = "yellowgreen green_bg";
-    }, 2000);
-    
-    setTimeout(() => {
-      this.link_style = "underline";
-    }, 4000);
   }
 }
