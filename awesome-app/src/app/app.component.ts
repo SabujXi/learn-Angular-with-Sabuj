@@ -39,6 +39,11 @@ export class AppComponent {
   }
 
   cancelTask(idx: number){
-    this.tasks[idx].is_canceled = true;
+    if (this.tasks[idx].is_canceled){
+      this.tasks[idx].is_canceled = false;
+    }else{
+      this.tasks[idx].is_canceled = true;
+    }
+    
   }
 }
