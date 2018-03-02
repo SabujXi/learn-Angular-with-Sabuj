@@ -17,6 +17,18 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <input type="text" class="form-control" name="filter" placeholder="Filter Keyword(s)" #filterInput>
+        </div>
+
+        <div class="col-xs-4">
+            <button class="btn btn-info" (click)="filterTasks(filterInput)">Filter</button>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-xs-12">
             <table class="table table-striped">
@@ -26,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let task of tasks; let idx = index">
+                    <tr *ngFor="let task of filtered_tasks; let idx = index">
                         <td *ngIf="task.is_canceled; else elseTd">
                             <s>{{ idx + 1 }}. {{task.title}}</s>
                         </td>

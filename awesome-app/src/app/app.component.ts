@@ -26,6 +26,8 @@ export class AppComponent {
     }
   ];
 
+  filtered_tasks: Array<Task> = this.tasks;
+
   clearToDo(){
     let do_delete = confirm("Are you sure to delete all tasks?");
     if (do_delete){
@@ -64,5 +66,17 @@ export class AppComponent {
     if (result !== null && result !== ""){
       this.tasks[idx].title = result;
     }
+  }
+
+  filterTasks(filter_input){
+    let filter_by: string = filter_input.value;
+    let filtered_tasks: Array<Task> = [];
+    for(let task of this.tasks){
+      if (task.title.includes(filter_by)){
+        filtered_tasks.push(task);
+      }
+    }
+
+    this.filtered_tasks = filtered_tasks;
   }
 }
