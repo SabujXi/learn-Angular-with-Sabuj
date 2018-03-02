@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, Input, ElementRef } from '@angular/core';
 
 interface Task{
   title: string,
@@ -33,7 +33,9 @@ export class AppComponent {
     }
   }
 
-  addTask(value: string){
+  addTask(input){
+    let value = input.value;
+    input.value = "";
     this.tasks.push(
       {
         title: value,
@@ -53,6 +55,14 @@ export class AppComponent {
     let do_delete = confirm("Are you sure to delete the task?");
     if (do_delete){
       this.tasks.splice(idx, 1);
+    }
+  }
+
+  editTask(idx: number){
+    let title = this.tasks[idx].title;
+    let result = prompt("Edit Task Title", title);
+    if (result !== null && result !== ""){
+      this.tasks[idx].title = result;
     }
   }
 }

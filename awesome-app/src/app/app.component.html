@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-xs-4">
-            <button class="btn btn-info" (click)="addTask(taskInput.value)">Add</button>
+            <button class="btn btn-info" (click)="addTask(taskInput)">Add</button>
         </div>
     </div>
 
@@ -33,6 +33,10 @@
                         <ng-template #elseTd>
                             <td>{{ idx + 1 }}. {{task.title}}</td>
                         </ng-template>
+
+                        <td>
+                            <button class="btn btn-primary btn-xs" (click)="editTask(idx)"> Edit </button>
+                        </td>
 
                         <td>
                             <button class="btn btn-warning btn-xs" (click)="cancelTask(idx)"> Cancel </button>
