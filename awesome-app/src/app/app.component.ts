@@ -88,7 +88,7 @@ export class AppComponent {
     let filtered_tasks: Array<Task> = [];
     for(let idx=0; idx < this.tasks.length; idx++){
       let task = this.tasks[idx];
-      if (task.title.includes(this.filter_by)){
+      if (task.title.toLowerCase().includes(this.filter_by)){
         filtered_tasks.push(
           <Task>{
             title: task.title,
@@ -104,7 +104,14 @@ export class AppComponent {
 
   addFilter(filter_input){
     let filter_by: string = filter_input.value;
+    filter_by = filter_by.toLowerCase();
     this.filter_by = filter_by;
+    this.filterTasks();
+  }
+
+  clearFilter(filterInput){
+    filterInput.value = "";
+    this.filter_by = "";
     this.filterTasks();
   }
 }
