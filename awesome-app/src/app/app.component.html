@@ -27,8 +27,14 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let todo of todo_array; let idx = index">
-                        {{ idx + 1 }}. {{todo}}
+                        <td>
+                            {{ idx + 1 }}. {{todo}}
+                        </td>
+                        <td>
+                            <button class="btn btn-warning btn-xs"> Cancel </button>
+                        </td>
                     </tr>
+
                 </tbody>
                 <tfoot>
                     <tr>
