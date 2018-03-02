@@ -15,4 +15,8 @@ export class AppComponent {
   clearToDo(){
     this.todo_array.splice(0);
   }
+
+  addTask(value: string){
+    this.todo_array.push(value);
+  }
 }

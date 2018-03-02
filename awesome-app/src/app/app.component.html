@@ -1,21 +1,41 @@
 <div class="container">
     <div class="row">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>To-Do list</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let todo of todo_array">
-                    {{todo}}
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                        <button class="btn btn-danger" (click)="clearToDo()">Clear</button>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="col-xs-12">
+            <h1> To-Do Application </h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8">
+            <input type="text" class="form-control" name="task" placeholder="Task" #taskInput>
+        </div>
+
+        <div class="col-xs-4">
+            <button class="btn btn-info" (click)="addTask(taskInput.value)">Add</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>To-Do list</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todo of todo_array; let idx = index">
+                        {{ idx + 1 }}. {{todo}}
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                            <button class="btn btn-danger" (click)="clearToDo()">Clear</button>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>
