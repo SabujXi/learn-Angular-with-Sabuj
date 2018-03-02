@@ -26,10 +26,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let todo of todo_array; let idx = index">
-                        <td>
-                            {{ idx + 1 }}. {{todo}}
+                    <tr *ngFor="let task of tasks; let idx = index">
+                        <td *ngIf="task.is_canceled; else elseTd">
+                            <s>{{ idx + 1 }}. {{task.title}}</s>
                         </td>
+                        <ng-template #elseTd>
+                            <td>{{ idx + 1 }}. {{task.title}}</td>
+                        </ng-template>
+
                         <td>
                             <button class="btn btn-warning btn-xs"> Cancel </button>
                         </td>
