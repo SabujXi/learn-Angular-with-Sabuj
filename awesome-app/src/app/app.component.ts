@@ -27,7 +27,10 @@ export class AppComponent {
   ];
 
   clearToDo(){
-    this.tasks.splice(0);
+    let do_delete = confirm("Are you sure to delete all tasks?");
+    if (do_delete){
+      this.tasks.splice(0);
+    }
   }
 
   addTask(value: string){
@@ -44,6 +47,12 @@ export class AppComponent {
     }else{
       this.tasks[idx].is_canceled = true;
     }
-    
+  }
+
+  deleteTask(idx: number){
+    let do_delete = confirm("Are you sure to delete the task?");
+    if (do_delete){
+      this.tasks.splice(idx, 1);
+    }
   }
 }
