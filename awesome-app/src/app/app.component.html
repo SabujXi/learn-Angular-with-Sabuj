@@ -40,11 +40,12 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let task of filtered_tasks;">
-                        <td *ngIf="task.is_canceled; else elseTd">
-                            <s>{{ task.f_idx + 1 }}. {{task.title}}</s>
+                        <td *ngIf="task.is_canceled; else elseTd" [innerHTML]="'<s>' + (task.f_idx + 1) + '.' + task.title + '</s>'">
                         </td>
                         <ng-template #elseTd>
-                            <td>{{ task.f_idx + 1 }}. {{task.title}}</td>
+                            <td [innerHTML]="(task.f_idx + 1) + '.' + task.title">
+
+                            </td>
                         </ng-template>
 
                         <td>

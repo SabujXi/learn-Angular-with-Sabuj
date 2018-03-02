@@ -88,10 +88,24 @@ export class AppComponent {
     let filtered_tasks: Array<Task> = [];
     for(let idx=0; idx < this.tasks.length; idx++){
       let task = this.tasks[idx];
-      if (task.title.toLowerCase().includes(this.filter_by)){
+      let title = task.title;
+      let title_lower = title.toLowerCase();
+      if (title_lower.includes(this.filter_by)){
+        let filter_len = this.filter_by.length;
+        let title_len = title.length;
+
+        let start_idx = title_lower.indexOf(this.filter_by);
+        let end_idx = start_idx + filter_len;
+
+        let start = title.substr(0,  start_idx );
+        let middle = title.substr(start_idx, filter_len);
+        let end = title.substr(end_idx, title_len);
+
+        let converted_title = start + "<b>" + middle + "</b>" + end;
+
         filtered_tasks.push(
           <Task>{
-            title: task.title,
+            title: converted_title,
             is_canceled: task.is_canceled,
             f_idx: idx
           }
