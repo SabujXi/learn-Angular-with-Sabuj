@@ -39,25 +39,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let task of filtered_tasks;">
-                        <td *ngIf="task.is_canceled; else elseTd" [innerHTML]="'<s>' + (task.f_idx + 1) + '.' + task.title + '</s>'">
-                        </td>
-                        <ng-template #elseTd>
-                            <td [innerHTML]="(task.f_idx + 1) + '.' + task.title">
-
+                    <tr *ngFor="let task of tasks; let idx = index">
+                        <ng-container *ngIf="task.displayable">
+                            <td [innerHTML]="(idx + 1) + '. ' + task.display_title">
                             </td>
-                        </ng-template>
 
-                        <td>
-                            <button class="btn btn-primary btn-xs" (click)="editTask(task.f_idx)"> Edit </button>
-                        </td>
+                            <td>
+                                <button class="btn btn-primary btn-xs" (click)="editTask(idx)"> Edit </button>
+                            </td>
 
-                        <td>
-                            <button class="btn btn-warning btn-xs" (click)="cancelTask(task.f_idx)"> Cancel </button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-xs" (click)="deleteTask(task.f_idx)"> Delete </button>
-                        </td>
+                            <td>
+                                <button class="btn btn-warning btn-xs" (click)="cancelTask(idx)"> Cancel </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-xs" (click)="deleteTask(idx)"> Delete </button>
+                            </td>
+                        </ng-container>
                     </tr>
 
                 </tbody>
